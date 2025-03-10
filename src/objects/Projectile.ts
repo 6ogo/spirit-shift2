@@ -6,7 +6,7 @@ import { createParticles } from '../utils/helpers';
 export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     private element: ElementType;
     private damage: number;
-    private active: boolean;
+    private isActive: boolean;
     private lifespan: number;
     private creationTime: number;
 
@@ -17,12 +17,12 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
         this.element = ElementType.SPIRIT;
         this.damage = 10;
-        this.active = false;
+        this.isActive = false;
         this.lifespan = 2000;
         this.creationTime = 0;
 
         this.setDepth(DEPTHS.PROJECTILES);
-        this.body.setAllowGravity(false);
+        this.body.allowGravity;
         this.disableBody(true, true);
     }
 
@@ -30,7 +30,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
         this.enableBody(true, x, y, true, true);
         this.element = element;
         this.damage = damage;
-        this.active = true;
+        this.isActive = true;
         this.creationTime = this.scene.time.now;
 
         this.setVelocity(velocityX, velocityY);
@@ -45,7 +45,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(time: number, delta: number): void {
-        if (!this.active) return;
+        if (!this.isActive) return;
         if (time - this.creationTime > this.lifespan) {
             this.deactivate();
             return;

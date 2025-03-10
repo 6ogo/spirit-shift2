@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { ElementType, PLAYER_CONFIG, PROJECTILE_CONFIG } from '../config';
 import { DEPTHS, EVENTS } from '../utils/constants';
-import Projectile from './Projectile';
+import Projectile from './Projectile.ts';
 import { createParticles } from '../utils/helpers';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {

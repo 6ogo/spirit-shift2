@@ -6,8 +6,9 @@ import Enemy from '../objects/Enemy';
 import Spirit from '../objects/Spirit';
 import LevelGenerator from '../systems/LevelGenerator';
 import SaveSystem from '../systems/SaveSystem';
-import { GAME_WIDTH, GAME_HEIGHT, ElementType } from '../config';
+import { GAME_WIDTH, GAME_HEIGHT, ElementType, PLAYER_CONFIG } from '../config';
 import { calculateElementalMultiplier } from '../utils/helpers';
+import Projectile from '@/objects/Projectile';
 
 export default class GameScene extends Phaser.Scene {
     private player: Player | null = null;
@@ -37,7 +38,7 @@ export default class GameScene extends Phaser.Scene {
         this.enemies = enemies;
         this.spirits = spirits;
 
-        this.createPlayer(data);
+        this.createPlayer(this.data);
         this.setupCollision();
         this.setupCamera();
 

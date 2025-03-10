@@ -1,11 +1,11 @@
 import Phaser from 'phaser';
-import BootScene from './scenes/BootScene';
-import MainMenuScene from './scenes/MainMenuScene';
-import TutorialScene from './scenes/TutorialScene';
-import GameScene from './scenes/GameScene';
-import UIScene from './scenes/UIScene';
-import PauseScene from './scenes/PauseScene';
-import GameOverScene from './scenes/GameOverScene';
+import BootScene from './scenes/BootScene.ts';
+import MainMenuScene from './scenes/MainMenuScene.ts';
+import TutorialScene from './scenes/TutorialScene.ts';
+import GameScene from './scenes/GameScene.ts';
+import UIScene from './scenes/UIScene.ts';
+import PauseScene from './scenes/PauseScene.ts';
+import GameOverScene from './scenes/GameOverScene.ts';
 
 export const GAME_WIDTH = 1600;
 export const GAME_HEIGHT = 900;
