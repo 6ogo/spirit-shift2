@@ -1,4 +1,3 @@
-// src/utils/constants.ts
 export const DEPTHS = {
     BACKGROUND: 0,
     PLATFORMS: 10,
@@ -8,9 +7,9 @@ export const DEPTHS = {
     PLAYER: 50,
     PARTICLES: 60,
     UI: 100
-  };
-  
-  export const SCENES = {
+};
+
+export const SCENES = {
     BOOT: 'BootScene',
     MAIN_MENU: 'MainMenuScene',
     TUTORIAL: 'TutorialScene',
@@ -18,9 +17,9 @@ export const DEPTHS = {
     UI: 'UIScene',
     PAUSE: 'PauseScene',
     GAME_OVER: 'GameOverScene'
-  };
-  
-  export const EVENTS = {
+};
+
+export const EVENTS = {
     PLAYER_DAMAGE: 'player-damage',
     PLAYER_HEAL: 'player-heal',
     PLAYER_ENERGY_CHANGE: 'player-energy-change',
@@ -32,11 +31,11 @@ export const DEPTHS = {
     GAME_OVER: 'game-over',
     PAUSE_GAME: 'pause-game',
     RESUME_GAME: 'resume-game'
-  };
-  
-  export const STORAGE_KEYS = {
+};
+
+export const STORAGE_KEYS = {
     SAVE_DATA: 'spirit-shift-save',
     HIGH_SCORE: 'spirit-shift-high-score',
     SETTINGS: 'spirit-shift-settings',
     UNLOCKED_ELEMENTS: 'spirit-shift-unlocked-elements'
-  };  
+};

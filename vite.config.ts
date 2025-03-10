@@ -3,12 +3,12 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': resolve(dirname(fileURLToPath(import.meta.url)), './src')
+    resolve: {
+        alias: {
+            '@': resolve(dirname(fileURLToPath(import.meta.url)), './src')
+        }
+    },
+    server: {
+        host: true
     }
-  },
-  server: {
-    host: true
-  }
 });
