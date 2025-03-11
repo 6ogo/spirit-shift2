@@ -50,7 +50,9 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
         // Set physics properties
         this.setDepth(DEPTHS.PROJECTILES);
-        this.body.setAllowGravity(false);
+        if (this.body instanceof Phaser.Physics.Arcade.Body) {
+            this.body.allowGravity = false;
+        }        
         this.disableBody(true, true);
     }
 

@@ -29,7 +29,9 @@ export default class SoulEssence extends Phaser.Physics.Arcade.Sprite {
         this.magnetSpeed = 300;
         
         // Configure physics
-        this.body.setAllowGravity(false);
+        if (this.body instanceof Phaser.Physics.Arcade.Body) {
+            this.body.allowGravity = false;
+        }
         this.setCircle(this.width / 3);
         this.setOffset(this.width / 3, this.height / 3);
         this.setDepth(DEPTHS.COLLECTIBLES);

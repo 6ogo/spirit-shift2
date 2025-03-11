@@ -53,7 +53,7 @@ export default class PauseScene extends Phaser.Scene {
         this.saveButton = this.createButton(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 80, 'SAVE GAME', () => this.saveGame());
         this.quitButton = this.createButton(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 130, 'QUIT TO MENU', () => this.quitToMenu());
 
-        this.input.keyboard.on('keydown-ESC', () => this.resumeGame());
+        this.input.keyboard!.on('keydown-ESC', () => this.resumeGame());
     }
 
     private createButton(x: number, y: number, text: string, callback: () => void): Phaser.GameObjects.Text {

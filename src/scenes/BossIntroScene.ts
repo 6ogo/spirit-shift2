@@ -62,8 +62,8 @@ export default class BossIntroScene extends Phaser.Scene {
         
         // Add space/enter to skip
         const skipKeys = [
-            this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
-            this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
+            this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+            this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
         ];
         
         skipKeys.forEach(key => {
@@ -93,7 +93,7 @@ export default class BossIntroScene extends Phaser.Scene {
         }
         
         // Update boss animation
-        if (progress > 0.3 && this.bossSprite.anims.currentAnim.key === `boss-${this.bossElement}-idle`) {
+        if (progress > 0.3 && this.bossSprite.anims.currentAnim!.key === `boss-${this.bossElement}-idle`) {
             // Change to more menacing animation
             this.bossSprite.play(`boss-${this.bossElement}-attack`);
             
