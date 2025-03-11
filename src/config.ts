@@ -108,7 +108,10 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: GRAVITY },
+            gravity: {
+                y: GRAVITY,
+                x: 0
+            },
             debug: false
         }
     },

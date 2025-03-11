@@ -26,7 +26,9 @@ export default class Spirit extends Phaser.Physics.Arcade.Sprite {
     this.element = element;
     
     // Set up physics body
-    this.body.setAllowGravity(false);
+    if (this.body) {
+      this.body.allowGravity = false;
+    }
     this.setImmovable(true);
     this.setCircle(this.width / 4);
     this.setOffset(this.width / 4, this.height / 4);
@@ -159,7 +161,9 @@ export default class Spirit extends Phaser.Physics.Arcade.Sprite {
       ease: 'Power2',
       onComplete: () => {
         // Remove physics body
-        this.body.enable = false;
+        if (this.body) {
+          this.body.enable = false;
+        }
         
         // Destroy the sprite after animation
         this.destroy();

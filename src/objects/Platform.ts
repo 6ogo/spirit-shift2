@@ -29,7 +29,9 @@ export default class Platform extends Phaser.Physics.Arcade.Sprite {
         this.particles = null;
 
         this.setDisplaySize(width, height);
-        this.body.setSize(width, height);
+        if (this.body) {
+            this.body.setSize(width, height);
+        }
         this.setOffset(0, 0);
         this.setDepth(DEPTHS.PLATFORMS);
 
@@ -91,7 +93,7 @@ export default class Platform extends Phaser.Physics.Arcade.Sprite {
                 quantity: 1
             });
         }
-        this.particles = particles.emitters.first;
+        this.particles = particles;
     }
 
     private createWaterParticles(color: number): void {
@@ -117,7 +119,7 @@ export default class Platform extends Phaser.Physics.Arcade.Sprite {
                 moveToY: { min: this.y - 50, max: this.y - 100 }
             });
         }
-        this.particles = particles.emitters.first;
+        this.particles = particles;
     }
 
     private createEarthParticles(color: number): void {
@@ -144,7 +146,7 @@ export default class Platform extends Phaser.Physics.Arcade.Sprite {
             frequency: 500 + Math.random() * 500,
             quantity: 1
         });
-        this.particles = particles.emitters.first;
+        this.particles = particles;
     }
 
     private createAirParticles(color: number): void {
@@ -165,7 +167,7 @@ export default class Platform extends Phaser.Physics.Arcade.Sprite {
             quantity: 1,
             rotate: { min: 0, max: 360 }
         });
-        this.particles = particles.emitters.first;
+        this.particles = particles;
     }
 
     public update(): void {}

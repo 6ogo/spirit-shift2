@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { ElementType, ENEMY_CONFIG } from '../config';
+import { ELEMENT_STRENGTHS, ELEMENT_WEAKNESSES, ElementType, ENEMY_CONFIG } from '../config';
 import { DEPTHS, EVENTS } from '../utils/constants';
 import { createParticles } from '../utils/helpers';
 
@@ -11,7 +11,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
     private damage: number;
     private speed: number;
     private direction: 'left' | 'right';
-    private moveTimer: Phaser.Time.TimerEvent | null;
+    private moveTimer!: Phaser.Time.TimerEvent | null;
     private isAggro: boolean;
     private targetX: number | null;
     private isDying: boolean;
@@ -39,7 +39,9 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.speed = ENEMY_CONFIG.BASE_SPEED + (Math.random() * level * 10);
         this.direction = Math.random() > 0.5 ? 'left' : 'right';
 
-        this.body.setSize(30, 30);
+        if (this.body) {
+            this.body.setSize(30, 30);
+        }
         this.setOffset((this.width - 30) / 2, this.height - 30);
         this.setDepth(DEPTHS.ENEMIES);
         this.setCollideWorldBounds(true);
@@ -148,7 +150,9 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.setVelocity(0, 0);
         this.play('enemy-death');
         this.createDeathParticles();
-        this.body.enable = false;
+        if (this.body) {
+            this.body.enable = false;
+        }
         this.scene.events.emit(EVENTS.ENEMY_DEFEATED, this.id);
         this.once('animationcomplete-enemy-death', () => {
             this.healthBar.destroy();
